@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Escribiendo nuestras propias directivas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="directivas">
+  
+  <h1 class="title">ESCRIBIENDO NUESTRAS PROPIAS DIRECTIVAS</h1>
+  
+  <div ng-controller="MainController">
+    
+    <div class="example-1">
+      <h4>En este primer ejemplo utlizaremos restrict: 'E', templateUrl para traer el template de nuestra directiva desde un archivo
+        y utilizaremos transclude para rescatar el contenido dentro de la directiva</h4>
+      </br>
+      
+      <!-- El contenido de esta directiva se perderá si no habilitamos transclude: true en la definición de la directiva -->
+      <!-- probar cambiando transclude: false (valor por defecto) para ver que el contenido será reemplazado y no se podrá rescatar -->
+      <gdg-ejemplo1>
+        <!-- <p class="transcluded-html">Contenido a través de transclude</p> -->
+      </gdg-ejemplo1>
+
+       <gdg-ejemplo1>
+        <p class="transcluded-html">Contenido a través de transclude</p>
+      </gdg-ejemplo1>
+    </div>
+    
+    <div class="example-2">
+      <h4>En este segundo ejemplo veremos como una directiva comparte el scope con el controlador que la contiene
+          con la propiedad scope:false (por defecto) y como se separa del controlador si scope:true </h4>
+      </br>
+      <div class="controller-container">
+        <p>Controller Name: {{name}}</p>
+
+           Change Controller Name:<input type="text" ng-model="name"/>
+      </div>
+      <div class="directive-container">
+        <!-- Podemos comprobar que la variable definida en el scope llamada name es compartida por el scope de la directiva -->
+        <!-- cuando scope:false y vemos como tiene su propio valor si definimos scope:true -->
+        <div class="example2-container" gdg-ejemplo2></div>
+      </div>
+    </div>
+  </div> <!--  MainController -->
+  
+  <div ng-controller="SvgController">
+    <div class="example-3">
+      
+      <div class="controller-container">
+        <p>Controller Name: {{name}}</p>
+        <input type="text" ng-model="name">
+      </div>
+     
+      
+      <gdg-svg-text text="name"></gdg-svg-text>
+      
+      <div class="controller-container">
+        <p>Controller Last Name:{{lastName}}</p>
+        <input type="text" ng-model="lastName">
+      </div>
+
+      <gdg-svg-text text="lastName"></gdg-svg-text>
+    
+    </div>
+  </div> <!--  SvgController -->
+
+
+  <script src="assets/lib/jquery/jquery-2.1.3.js"></script>
+  <script src="assets/lib/owl-carousel/owl.carousel.js"></script>
+  <script src="assets/lib/d3/d3.js"></script> 
+  <script src="assets/lib/angular/angular.min.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/controllers/MainController.js"></script>
+  <script src="app/controllers/SvgController.js"></script>
+  <script src="app/directives/ejemplo1/ejemplo1.js"></script>
+  <script src="app/directives/ejemplo2/ejemplo2.js"></script>
+  <script src="app/directives/ejemplo3/svgText.js"></script>
+</body>
+</html>

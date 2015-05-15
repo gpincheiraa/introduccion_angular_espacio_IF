@@ -1,0 +1,52 @@
+
+/*
+    redgdg #DC4939
+    bluegdg #4284F5
+    greengdg #48A942
+    yellowgdg #FDB930
+
+*/
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+div{
+  padding: 10px;
+  margin: 5px;
+  
+}
+.title{
+  text-align: center;
+}
+.example-1{
+  border: solid 2px #FDB930; 
+}
+.example1-container{
+  background-color: #DC4939; 
+  color:#FFF;
+}
+.transcluded-html{
+  background-color: #FDB930;
+  color:#FFF;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+
+.example-2{
+  border: solid 2px #4284F5;
+}
+
+.example2-container{
+  background-color: #48A942; 
+  color:#FFF;
+}
+
+.example-3{
+  border: solid 2px  #DC4939;
+}
+
+.controller-container{
+  background-color: #4284F5;
+  color:#FFF;
+}
+
